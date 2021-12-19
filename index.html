@@ -140,12 +140,12 @@
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
-<script  src="./time.js"></script>
-<script  src="./plan.js"></script>
-<script  src="./chart1.js"></script>
-<script  src="./chart2.js"></script>
-<script  src="./chart3.js"></script>
-<script  src="./chart4.js"></script>
+<script src="./time.js"></script>
+<script src="./plan.js"></script>
+<script src="./chart1.js"></script>
+<script src="./chart2.js"></script>
+<script src="./chart3.js"></script>
+<script src="./chart4.js"></script>
 <script>
     root.style.height = pageHeight + 'px'
     root.style.marginTop = (clientHeight - pageHeight) / 2 + 'px'
@@ -183,8 +183,9 @@
                     warning: '下水位'
                 },
             ],
-            callback: (index) => {
-                console.log(index);
+            callback: (data) => {
+                console.log('data');
+                console.log(data);
                 time && clearInterval(time)
                 time = setInterval(() => {
                     window.My_Chart1.render(
@@ -220,16 +221,14 @@
                     roomTemperature: '2度',
                 },
             ],
-            callback: (index) => {
-                console.log(index);
+            callback: (data) => {
+                console.log('data2');
+                console.log(data);
+/*
                 time && clearInterval(time)
                 time = setInterval(() => {
-                    window.My_Chart2.render(
-                        Math.floor(Math.random() * 100),
-                        Math.floor(Math.random() * 100),
-                        Math.floor(Math.random() * 100)
-                    )
                 }, 2000)
+*/
             }
         })
 

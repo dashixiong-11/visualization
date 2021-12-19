@@ -36,6 +36,7 @@ const Chart2 = {
         $('#next2').click(() => {
             this.next(callback)
         })
+         callback(this.machineList[0])
     },
     init: function ({list, callback}) {
         this.machineList = list

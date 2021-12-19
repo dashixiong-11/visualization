@@ -134,6 +134,7 @@ header > .header-logout {
 }
 
 main {
+    padding: 3em;
     width: 100rem;
     margin: 0 auto;
     padding-top: calc(30 / 2420 * 100rem);
