@@ -1,4 +1,4 @@
-export const Setting = {
+const Setting = {
     cardId: '',
     planWidth: $('#wrapper')[0].clientWidth,
     planHeight: $('#wrapper')[0].clientHeight,
@@ -182,3 +182,5 @@ style='top:${item.top * this.planHeight + 'px'};left: ${item.left * this.planWid
         this.bindDelete()
     }
 }
+
+window.My_Setting = Setting

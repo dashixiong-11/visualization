@@ -1,4 +1,4 @@
-export const Plan = {
+const Plan = {
     list: [],
     timeId: '',
     render: function ({list, img}) {
@@ -22,3 +22,5 @@ style='top:${item.top * planHeight + 'px'};left: ${item.left * planWidth + 'px'}
         }, 500)
     }
 }
+
+window.My_Plan = Plan

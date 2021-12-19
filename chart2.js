@@ -1,4 +1,4 @@
-export const Chart2 = {
+const Chart2 = {
     machineList: [],
     index: 0,
     setTitle: function (name) { $('#name2').text(name) },
@@ -43,3 +43,5 @@ export const Chart2 = {
         this._render()
     },
 }
+
+window.My_Chart2 = Chart2

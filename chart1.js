@@ -1,4 +1,4 @@
-export const Chart1 = {
+const Chart1 = {
     timeId: null,
     myChart: echarts.init($('#chart-1')[0]),
     index: 0,
@@ -210,3 +210,4 @@ export const Chart1 = {
     }
 }
 
+window.My_Chart1 = Chart1

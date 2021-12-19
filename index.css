@@ -133,7 +133,7 @@ header > .header-logout {
     font-size: calc(40 / 2420 * 100rem);
 }
 
- main {
+main {
     width: 100rem;
     margin: 0 auto;
     padding-top: calc(30 / 2420 * 100rem);
@@ -150,11 +150,12 @@ header > .header-logout {
     height: calc(300 / 2420 * 100rem);
     display: flex;
 }
-canvas{
+
+canvas {
     width: 100%;
 }
 
- .chart {
+.chart {
     flex: 1;
 }
 
@@ -233,9 +234,6 @@ main > section {
     line-height: 2;
 }
 
-.card {
-    text-align: left;
-}
 
 .bordered2::before {
     pointer-events: none;
@@ -310,9 +308,6 @@ main > section {
     width: 49.9%;
 }
 
-.战果, .作案手段 {
-    padding: 0 calc(24 / 2420 * 100rem);
-}
 
 > table {
     width: 100%;
@@ -354,6 +349,7 @@ td {
 }
 
 .card {
+    text-align: left;
     box-sizing: border-box;
     cursor: pointer;
     position: absolute;
@@ -389,9 +385,9 @@ ul > li {
     position: absolute;
     width: 0;
     height: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 100%;
+    left: 0;
+    top: 0;
+    transform: translate(-100% ,-100%) rotate(135deg);
     border-style: solid;
     border-width: calc(10 / 2420 * 100rem);
     border-color: rgba(36, 9, 81, 0.6) transparent transparent transparent;

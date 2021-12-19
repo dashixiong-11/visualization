@@ -1,5 +1,4 @@
-
-export const Chart3 = {
+const Chart3 = {
     machineList: [],
     index: 0,
     myChart: echarts.init($('#chart-3')[0]),
@@ -46,3 +45,4 @@ export const Chart3 = {
         this.myChart.setOption(options)
     }
 }
+window.My_Chart3 = Chart3
