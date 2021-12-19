@@ -1,0 +1,410 @@
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+*::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+    font-size: 16px;
+    background: #00020b;
+}
+
+#root {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.App {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 16px;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.home {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: center center no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: calc(16 / 2420 * 100rem);
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.switch-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: calc(30 / 2420 * 100rem) calc(20 / 2420 * 100rem);
+    font-size: calc(30 / 2420 * 100rem);
+}
+
+.switch-bar > span {
+    margin: 0 calc(50 / 2420 * 100rem);
+}
+
+.switch-bar > img {
+    cursor: pointer;
+    width: calc(50 / 2420 * 100rem);
+}
+
+header {
+    height: calc(99 / 2420 * 100rem);
+    background-size: cover;
+    width: 100rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: calc(60 / 2420 * 100rem);
+    margin: 0 auto;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+header > .header-time {
+    position: absolute;
+    top: calc(10 / 2420 * 100rem);
+    font-size: calc(35 / 2420 * 100rem);
+    right: calc(300 / 2420 * 100rem);
+    color: #00bef8;
+}
+
+header > .header-logout {
+    top: calc(10 / 2420 * 100rem);
+    font-size: calc(20 / 2420 * 100rem);
+    position: absolute;
+    padding: calc(10 / 2420 * 100rem) calc(20 / 2420 * 100rem);
+    right: calc(50 / 2420 * 100rem);
+    border: 1px solid #0e325f;
+}
+
+
+.now {
+    position: absolute;
+    top: calc(10 / 2420 * 100rem);
+    left: calc(300 / 2420 * 100rem);
+    font-size: calc(20 / 2420 * 100rem);
+    display: flex;
+    align-items: end;
+
+
+}
+
+.now > div {
+    margin-left: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.now > span {
+    font-size: calc(40 / 2420 * 100rem);
+}
+
+ main {
+    width: 100rem;
+    margin: 0 auto;
+    padding-top: calc(30 / 2420 * 100rem);
+    flex: 1;
+    display: grid;
+    grid-template:
+			"box3 box4 box5" 755fr
+			"box3 box4 box5" 363fr / 5fr 10fr 5fr;
+    grid-column-gap: calc(28 / 2420 * 100rem);
+    grid-row-gap: calc(28 / 2420 * 100rem);
+}
+
+.chart-wrapper {
+    height: calc(300 / 2420 * 100rem);
+    display: flex;
+}
+canvas{
+    width: 100%;
+}
+
+ .chart {
+    flex: 1;
+}
+
+h2 {
+    display: inline-block;
+    margin-bottom: calc(10 / 2420 * 100rem);
+    flex-shrink: 0;
+    border: 1px solid #0a5299;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-size: calc(22 / 2420 * 100rem);
+    line-height: calc(24 / 2420 * 100rem);
+    padding: calc(10 / 2420 * 100rem) calc(28 / 2420 * 100rem);
+    text-shadow: 0 0 calc(3 / 2420 * 100rem) white;
+}
+
+.section-top-height {
+    height: calc(800 / 2420 * 100rem);
+}
+
+.section-bottom-height {
+    height: calc(400 / 2420 * 100rem);
+}
+
+
+.legend {
+    height: calc(40 / 2420 * 100rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-right: calc(10 / 2420 * 100rem);
+}
+
+.legend > span {
+    display: inline-block;
+    width: calc(16 / 2420 * 100rem);
+    height: calc(10 / 2420 * 100rem);
+    border-radius: calc(2 / 2420 * 100rem);
+    margin: 0 calc(10 / 2420 * 100rem);
+}
+
+main > section {
+    text-align: center;
+}
+
+.bordered {
+
+    border: 1px solid #00bef8;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 0 2px 0 #0e325f, inset 0 0 2px 0 #0e325f;
+}
+
+.bordered::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border-radius: 4px;
+    box-shadow: 17px 0 0 -16px #0e325f, -17px 0 0 -16px #0e325f, 0 17px 0 -16px #0e325f, 0 -17px 0 -16px #0e325f,
+    9px 0 0 -8px #0d4483, -9px 0 0 -8px #0d4483, 0 9px 0 -8px #0d4483, 0 -9px 0 -8px #0d4483;
+}
+
+.bordered2 {
+    border: 1px solid #00bef8;
+    position: relative;
+    box-shadow: 0 0 2px 0 #0e325f, inset 0 0 2px 0 #0e325f;
+    background: #0f113a;
+}
+
+.bordered2 > span {
+    line-height: 2;
+}
+
+.card {
+    text-align: left;
+}
+
+.bordered2::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border-radius: 4px;
+    box-shadow: 17px 0 0 -16px #0e325f, -17px 0 0 -16px #0e325f, 0 17px 0 -16px #0e325f, 0 -17px 0 -16px #0e325f,
+    9px 0 0 -8px #0d4483, -9px 0 0 -8px #0d4483, 0 9px 0 -8px #0d4483, 0 -9px 0 -8px #0d4483;
+}
+
+
+.section3 {
+    grid-area: box3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.section3-top,
+.section3-bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.box3-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.box3-wrapper > li {
+    padding: calc(10 / 2420 * 100rem) calc(30 / 2420 * 100rem);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.section3-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.section4 {
+    grid-area: box4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section5 {
+    grid-area: box5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.section5-top {
+    display: flex;
+    flex-direction: column;
+}
+
+#charts-wrapper > div {
+    width: 49.9%;
+}
+
+.战果, .作案手段 {
+    padding: 0 calc(24 / 2420 * 100rem);
+}
+
+> table {
+    width: 100%;
+    table-layout: fixed;
+    margin-top: calc(25 / 2420 * 100rem);
+    border-collapse: collapse;
+}
+
+table > thead > th {
+    height: calc(70 / 2420 * 100rem);
+    box-shadow: inset 0 0 calc(60 / 2420 * 100rem) 0 #1f3d85;
+}
+
+tbody > td {
+    height: calc(50 / 2420 * 100rem);
+    width: calc(84 / 2420 * 100rem);
+    background: #1c2456;
+}
+
+th,
+td {
+    border: 1px solid #1a3671;
+}
+
+.setting {
+    display: flex;
+    justify-content: space-between;
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+    background: #fff;
+    flex: 1;
+}
+
+.right {
+    width: 800px;
+}
+
+.card {
+    box-sizing: border-box;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(36, 9, 81, 0.6);
+    color: #fff;
+    border-radius: calc(15 / 2420 * 100rem);
+    font-size: calc(20 / 2420 * 100rem);
+    padding: calc(8 / 2420 * 100rem);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+ul > li {
+    font-family: Arial, sans-serif, microsoft yahei, Microsoft YaHei, "\5FAE\8F6F\96C5\9ED1", Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB;
+    list-style: none;
+}
+
+.active {
+    border: 1px solid rgb(53, 53, 53);
+}
+
+
+.card-title {
+    line-height: 2;
+}
+
+.card::before {
+    content: '';
+    display: inline-flex;
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    border-style: solid;
+    border-width: calc(10 / 2420 * 100rem);
+    border-color: rgba(36, 9, 81, 0.6) transparent transparent transparent;
+}
+
+.img-wrapper {
+    position: relative;
+}
+
+img {
+    width: 100%;
+}
+
+#wrapper {
+    border: 2px dashed rgb(124, 124, 124);
+}

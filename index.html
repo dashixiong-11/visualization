@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+    <title>大屏可视化项目</title>
+    <link rel="stylesheet" href="./index.css">
+    <script>
+        const clientWidth = document.documentElement.clientWidth
+        const clientHeight = document.documentElement.clientHeight
+        window.pageWidth = clientWidth / clientHeight > 16 / 9 ? clientHeight * (16 / 9) : clientWidth
+        const pageHeight = pageWidth / (16 / 9)
+        const string = `<style>html{ font-size: ${pageWidth / 100}px }</style>`
+        document.write(string)
+    </script>
+</head>
+<body>
+<div id="root">
+    <div class="App">
+        <div class="home" style="background-image:url('./images/bj.png')">
+            <header style='background-image: url("./images/head_bg.png")'>
+                <div class="now">
+                    <span style=" width:3em" id="render-time">
+                    </span>
+                    <div><span id="render-now"> </span> <span id="render-week"></span></div>
+                </div>
+                <span class='header-time' id="render-range"> </span>
+                <span class='header-title'> xxx系统 </span>
+                <!--            <div class='header-logout'>退出登录</div>-->
+            </header>
+            <main>
+                <section class="section3">
+                    <div class="bordered section3-top section-top-height">
+                        <div class="section-header">
+                            <h2>恒温一体机</h2>
+                        </div>
+                        <div class='switch-bar'>
+                            <img src='./images/left.svg' id="prev1" alt=""/>
+                            <span id="name1">空调机1</span>
+                            <img src='./images/right.svg' id="next1" alt=""/>
+                        </div>
+                        <div class="chart-wrapper">
+                            <!--                        <Chart15/>-->
+                            <div class="chart" id="chart-1"></div>
+                        </div>
+                        <div style=" display: flex; flex: 1; justify-content:center; flex-direction: column ">
+                            <ul class="box3-wrapper">
+                                <li class="bordered2">
+                                    <img src='./images/kaiguanji.png' alt=""/>
+                                    <span>开关机状态</span>
+                                    <div class='button' id="status1">开机</div>
+                                </li>
+                                <li class="bordered2">
+                                    <img src='./images/yunxingzhuangtai.png' alt=""/>
+                                    <span>运行状态</span>
+                                    <div class='button' id="type1">驾驶模式</div>
+                                </li>
+                                <li class="bordered2">
+                                    <img src='./images/shuiweibaoj.png' alt=""/>
+                                    <span>水位报警</span>
+                                    <div class='button' id="warning1">上水位</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="section3-bottom bordered section-bottom-height">
+                        <div class="section-header">
+                            <h2>空调监控</h2>
+                        </div>
+                        <div class='switch-bar'>
+                            <img src='./images/left.svg' id="prev2" alt=""/>
+                            <span id="name2">空调机1</span>
+                            <img src='./images/right.svg' id="next2" alt=""/>
+                        </div>
+                        <div style=" display: flex; flex: 1; justify-content: center; flex-direction: column ">
+                            <ul class="box3-wrapper">
+                                <li class="bordered2">
+                                    <img src='./images/kaiguanji.png' alt=""/>
+                                    <span>开关机状态</span>
+                                    <div class='button' id="status2">开机</div>
+                                </li>
+                                <li class="bordered2">
+                                    <img src='./images/wenduji.png' alt=""/>
+                                    <span>设定温度</span>
+                                    <div class='button' id="temperature">20°C</div>
+                                </li>
+                                <li class="bordered2">
+                                    <img src='./images/kongtiao.png' alt=""/>
+                                    <span>当前室温</span>
+                                    <div class='button' id="room-temperature">28°C</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section class="section4">
+                    <div class='bordered section4-top section-top-height'>
+                        <div class="plan" id="plan-wrapper">
+                            <img src='' class='canvas-img' id='image' draggable='false'/>
+                        </div>
+                    </div>
+                    <div class="bordered section4-bottom section-bottom-height">
+                        <!--                    <Chart5/>-->
+                    </div>
+                </section>
+                <section class="section5">
+                    <div class='bordered section5-top section-top-height'>
+                        <div class="section-header">
+                            <h2>温湿度曲线</h2>
+                        </div>
+                        <div class='switch-bar'>
+                            <img src='./images/left.svg' id="prev3" alt=""/>
+                            <span id="name3">空调机1</span>
+                            <img src='./images/right.svg' id="next3" alt=""/>
+                        </div>
+                        <div class="chart-wrapper">
+                            <div id="chart-3" class="chart"></div>
+                        </div>
+                        <div style=" display: flex; flex: 1; justify-content: center; flex-direction: column ">
+                            <div class='chart-wrapper' id='charts-wrapper'>
+                                <div class='wave-ball' id='wave-ball'>
+                                    <!--   <img src={hm002} style={{ width: width }} alt="" />-->
+                                    <canvas id='canvas5'></canvas>
+                                </div>
+                                <div class='thermometer' id='thermometer'>
+                                    <canvas id='canvas4'></canvas>
+                                </div>
+                                <!--                            <WaveBall value={humidity}/>-->
+                                <!--                                <Thermometer value={temp}/>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bordered section5-bottom section-bottom-height">
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+<script type="module" src="./time.js"></script>
+<script type="module" src="./chart2.js"></script>
+<script>
+    // root.style.width = pageWidth + 'px'
+    root.style.height = pageHeight + 'px'
+    root.style.marginTop = (clientHeight - pageHeight) / 2 + 'px'
+</script>
+<script type="module">
+    import {Plan} from './plan.js'
+    import {Chart1} from "./chart1.js";
+    import {Chart2} from './chart2.js'
+    import {Chart3} from './chart3.js'
+    import {Chart4} from './chart4.js'
+    import {px} from './util/px.js'
+
+    $(function () {
+        Plan.render({
+            list: JSON.parse(localStorage.getItem('list')),
+            img: '../images/demo_picture.png'
+        })
+        let time
+        Chart1.init({
+            list: [
+                {
+                    id: 1,
+                    name: '空调1',
+                    status: '开机',
+                    type: '加湿模式',
+                    warning: '上水位'
+                },
+                {
+                    id: 2,
+                    name: '空调2',
+                    status: '关机',
+                    type: '模式二',
+                    warning: '中水位'
+                },
+                {
+                    id: 3,
+                    name: '空调3',
+                    status: '开机',
+                    type: '模式三',
+                    warning: '下水位'
+                },
+            ],
+            callback: (index) => {
+                console.log(index);
+                time && clearInterval(time)
+                time = setInterval(() => {
+                    Chart1.render(
+                        Math.floor(Math.random() * 100),
+                        Math.floor(Math.random() * 100),
+                        Math.floor(Math.random() * 100)
+                    )
+                }, 2000)
+            }
+        })
+
+        Chart2.init({
+            list: [
+                {
+                    id: 1,
+                    name: '空调机1',
+                    status: '开机',
+                    temperature: '30度',
+                    roomTemperature: '21度',
+                },
+                {
+                    id: 2,
+                    name: '空调机2',
+                    status: '关机',
+                    temperature: '10度',
+                    roomTemperature: '11度',
+                },
+                {
+                    id: 3,
+                    name: '空调机3',
+                    status: '关机',
+                    temperature: '40度',
+                    roomTemperature: '2度',
+                },
+            ],
+            callback: (index) => {
+                console.log(index);
+                time && clearInterval(time)
+                time = setInterval(() => {
+                    Chart2.render(
+                        Math.floor(Math.random() * 100),
+                        Math.floor(Math.random() * 100),
+                        Math.floor(Math.random() * 100)
+                    )
+                }, 2000)
+            }
+        })
+
+        //Chart3
+        //横坐标 事件参数
+        let data = [];
+        //温度参数
+        let d1 = []
+        //湿度参数
+        let d2 = []
+        const GetTime = () => {
+            let t, h, i, s;
+            t = new Date();
+            h = t.getHours();
+            i = t.getMinutes();
+            s = t.getSeconds();
+            // 定义时间格式
+            return (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s);
+        }
+        let t
+
+        Chart3.init({
+            list: [
+                {id: 1, name: '机器1'},
+                {id: 1, name: '机器2'},
+                {id: 1, name: '机器3'},
+            ],
+            callback: (item) => {
+                if (t) { clearInterval(t) }
+                //每次切换把数据置空
+                d1 = []
+                d2 = []
+                data = []
+                t = setInterval(() => {
+                    if (d1.length > 30) {
+                        d1.shift()
+                        d2.shift()
+                        data.shift()
+                    }
+                    d1.push(Math.floor(Math.random() * 100))
+                    d2.push(Math.floor(Math.random() * 100))
+                    data.push(GetTime())
+                    Chart3.render(
+                        {
+                            legend: {
+                                bottom: px(10),
+                                textStyle: {color: 'white'},
+                                itemWidth: px(30),
+                                itemHeight: px(16),
+                                data: ['温度', '湿度']
+                            },
+                            grid: {
+                                x: px(20),
+                                x2: px(20),
+                                y: px(20),
+                                y2: px(70),
+                                containLabel: true
+                            },
+                            xAxis: {
+                                name: '时间',
+                                type: 'category',
+                                boundaryGap: false,
+                                data: data
+                            },
+                            yAxis: {
+                                type: 'value',
+                                name: '温湿度',
+                                max: 'dataMax',
+                                splitLine: {
+                                    show: false
+                                }
+                            },
+                            tooltip: {trigger: 'axis'},
+                            triggerLineEvent: true,
+                            series: [
+                                {
+                                    name: '温度',
+                                    type: 'line',
+                                    data: d1
+                                },
+                                {
+                                    name: '湿度',
+                                    type: 'line',
+                                    data: d2
+                                },
+                            ].map(obj => ({
+                                ...obj,
+                                symbol: 'circle',
+                                symbolSize: px(12),
+                                lineStyle: {width: px(2)}
+                            }))
+                        }
+                    )
+
+                    Chart4.render({
+                        humidity: {
+                            id: 'canvas5',
+                            color: ['rgba(13,68,131,.6)', 'rgba(0,190,248,.6)', 'rgba(14,50,95,.6)'],
+                            value: d1[d1.length - 1]
+                        },
+                        temp: {
+                            id: 'canvas4',
+                            R: 6, // 参数化尺寸基准值  温度计底部圆圈半径
+                            temColor1: "#0080FF", //低温
+                            temColor2: "#FF3D3D", //高温
+                            borderColor: "#CCE6FF", //边框颜色  CCE6FF  0088cc
+                            lineColor: "#ffffff", //刻度颜色
+                            t: d2[d2.length - 1], //当前温度  可以输入温度  -10   0  40可以完全正常显示  能够与刻度线对齐
+                        }
+                    })
+                }, 1000)
+
+            }
+        })
+    })
+</script>
+</body>
+</html>
