@@ -40,6 +40,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -405,9 +406,6 @@ img {
     border: 2px dashed rgb(124, 124, 124);
 }
 
-main {
-    position: relative;
-}
 
 .section4-top {
     position: relative;
@@ -426,11 +424,13 @@ main {
     border-radius: 1.5em;
     font-weight: bold;
     background-color: rgba(27, 2, 65, 0.6);
+    cursor: default;
 }
 
 .alert {
     width: calc(500 / 2420 * 100rem);
     height: calc(300 / 2420 * 100rem);
+    overflow: auto;
     background-color: rgba(36, 9, 81, 0.6);
     margin-top: 10%;
 }
@@ -442,4 +442,54 @@ main {
     position: fixed;
     width: 100%;
     height: 100%;
+    color: #fff;
+}
+
+.login {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 15%;
+}
+
+.login-h1 {
+    font-size: calc(80 / 2420 * 100rem);
+    line-height: 3;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(#1c2a58, #7388ff);
+    border-radius: calc(10 / 2420 * 100rem);
+    overflow: hidden;
+}
+
+label > div {
+    width: 3em;
+    text-align: center;
+    font-size: calc(30 / 2420 * 100rem);
+}
+
+label > input {
+    border: 0;
+    outline-style: none;
+    padding: 10px 20px;
+}
+
+form > button {
+    color: #fff;
+    padding: 0 2em;
+    outline-style: none;
+    border: none;
+    margin-left: 2em;
+    height: 100%;
+    border-radius: calc(10 / 2420 * 100rem);
+    background-image: linear-gradient(#1c2a58, #7388ff);
 }

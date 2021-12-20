@@ -6,6 +6,7 @@
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
     <title>大屏可视化项目</title>
     <link rel="stylesheet" href="./index.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/zTree.v3/3.5.42/css/zTreeStyle/zTreeStyle.min.css" rel="stylesheet">
     <script>
         const clientWidth = document.documentElement.clientWidth
         const clientHeight = document.documentElement.clientHeight
@@ -135,15 +136,18 @@
                     <div class="bordered section5-bottom section-bottom-height">
                     </div>
                 </section>
-                <div class='alert-wrapper' id='alert'>
-                    <div class='alert bordered'></div>
-                </div>
             </main>
+        </div>
+        <div class='alert-wrapper' id='alert'>
+            <div class='alert bordered'>
+                <ul id="tree-wrapper" class="ztree"></ul>
+            </div>
         </div>
     </div>
 </div>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/zTree.v3/3.5.42/js/jquery.ztree.all.min.js"></script>
 <script src="./time.js"></script>
 <script src="./plan.js"></script>
 <script src="./switch.js"></script>
@@ -157,15 +161,31 @@
 </script>
 <script>
     const px = (n) => n / 2420 * window.pageWidth;
+    const {render: zTreeRender} = window.My_Switch
 
     $(function () {
+        zTreeRender({
+            nodes: [           // zTree 的数据属性，此处使用标准json格式
+                {
+                    name: "test1", open: true, children: [
+                        {name: "test1_1"}, {name: "test1_2"}]
+                },
+                {
+                    name: "test2", open: true, children: [
+                        {name: "test2_1"}, {name: "test2_2"}]
+                }
+            ],
+            callback: (event, treeId, treeNode) => {
+                console.log(treeNode)
+            }
+        })
+
         window.My_Plan.setImage({
             img: '../images/demo_picture.png'
         })
         window.My_Plan.render({
             list: JSON.parse(localStorage.getItem('list')),
         })
-
 
         let time
         window.My_Chart1.init({
