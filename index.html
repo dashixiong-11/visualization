@@ -21,13 +21,13 @@
         <div class="home" style="background-image:url('./images/bj.png')">
             <header style='background-image: url("./images/head_bg.png")'>
                 <div class="now">
-                    <span style=" width:3em" id="render-time">
+                    <span id="render-time">
                     </span>
                     <div><span id="render-now"> </span> <span id="render-week"></span></div>
                 </div>
                 <span class='header-time' id="render-range"> </span>
                 <span class='header-title'> xxx系统 </span>
-                <!--            <div class='header-logout'>退出登录</div>-->
+                <div class='header-logout'>退出登录</div>
             </header>
             <main>
                 <section class="section3">
@@ -95,8 +95,9 @@
                     </div>
                 </section>
                 <section class="section4">
-                    <div class='bordered section4-top section-top-height'>
-                        <div class="plan" id="plan-wrapper">
+                    <div class='section4-top section-top-height'>
+                        <div class='switch-map' id='switch-map'>切换地图</div>
+                        <div class="plan" id="plan-wrapper" style='position: relative'>
                             <img src='' class='canvas-img' id='image' draggable='false'/>
                         </div>
                     </div>
@@ -134,6 +135,9 @@
                     <div class="bordered section5-bottom section-bottom-height">
                     </div>
                 </section>
+                <div class='alert-wrapper' id='alert'>
+                    <div class='alert bordered'></div>
+                </div>
             </main>
         </div>
     </div>
@@ -142,6 +146,7 @@
 <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
 <script src="./time.js"></script>
 <script src="./plan.js"></script>
+<script src="./switch.js"></script>
 <script src="./chart1.js"></script>
 <script src="./chart2.js"></script>
 <script src="./chart3.js"></script>
@@ -154,10 +159,14 @@
     const px = (n) => n / 2420 * window.pageWidth;
 
     $(function () {
-        window.My_Plan.render({
-            list: JSON.parse(localStorage.getItem('list')),
+        window.My_Plan.setImage({
             img: '../images/demo_picture.png'
         })
+        window.My_Plan.render({
+            list: JSON.parse(localStorage.getItem('list')),
+        })
+
+
         let time
         window.My_Chart1.init({
             list: [
@@ -224,11 +233,6 @@
             callback: (data) => {
                 console.log('data2');
                 console.log(data);
-/*
-                time && clearInterval(time)
-                time = setInterval(() => {
-                }, 2000)
-*/
             }
         })
 

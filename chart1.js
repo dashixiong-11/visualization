@@ -19,7 +19,7 @@ const Chart1 = {
             this.index += 1
         } else {
             this._render()
-            callback(this.index)
+            callback(this.machineList[this.index])
         }
     },
     next: function (callback) {
@@ -28,7 +28,7 @@ const Chart1 = {
             this.index -= 1
         } else {
             this._render()
-            callback(this.index)
+            callback(this.machineList[this.index])
         }
     },
     setOption: function (leftValue, middleValue, rightValue) {
@@ -76,13 +76,13 @@ const Chart1 = {
                     detail: {
                         valueAnimation: true,
                         color: '#fff',
-                        fontSize: 15,
+                        fontSize: px(20),
                         offsetCenter: [0, '70%'],
                         formatter: "{value}%"
                     },
                     data: [
                         {
-                            value: leftValue
+                            value: leftValue,
                         }
                     ]
                 },
@@ -124,7 +124,7 @@ const Chart1 = {
                     axisLabel: {
                         color: 'auto',
                         distance: 20,
-                        fontSize: 10
+                        fontSize: px(10)
                     },
                     detail: {
                         valueAnimation: true,
@@ -187,7 +187,7 @@ const Chart1 = {
                     },
                     data: [
                         {
-                            value: rightValue
+                            value: rightValue,
                         }
                     ]
                 }

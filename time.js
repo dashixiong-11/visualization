@@ -49,7 +49,8 @@ const Time = {
     }
 
 }
-setInterval(()=>{
+
+setInterval(() => {
     Time.render()
     Time.renderRangeTime('2001-11-11')
-} ,1000)
+}, 1000)

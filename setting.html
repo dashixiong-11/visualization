@@ -19,32 +19,20 @@
 <div id="root">
     <div class="App">
         <div class="setting">
-            <div class="img-wrapper">
-                <div id='wrapper'>
-                    <img src='./images/demo_picture.png' class='canvas-img' id='image' draggable='false'/>
-                    <!--
-                                        <div class="card">
-                                            <span class="card-item">标题</span>
-                                            <ul>
-                                                <li>
-                                                    123
-                                                </li>
-                                            </ul>
-                                        </div>
-                    -->
-                </div>
+            <div class="plan" id="plan-wrapper" style='position: relative'>
+                <img src='' class='canvas-img' id='image' draggable='false'/>
             </div>
             <div class='right'>
-                <button id="add-button">新增</button>
+                <!--                <button id="add-button">新增</button>-->
                 <button id="get-data">获取数据</button>
                 <div class="input-wrapper" id="input-wrapper">
                     <div>
                         <div>标题: <input name='title' type="text"></div>
-                        <div>内容: <textarea name='content'></textarea></div>
+                        <!--                        <div>内容: <textarea name='content'></textarea></div>-->
                         <div>
-                            <button class='submit' id="submit-button">确定</button>
-                            <button id="delete-button">删除</button>
-                            <button id="cancel-button">取消</button>
+                            <!--                            <button class='submit' id="submit-button">确定</button>-->
+                            <!--                            <button id="delete-button">删除</button>-->
+                            <!--                            <button id="cancel-button">取消</button>-->
                         </div>
                     </div>
                 </div>
@@ -58,18 +46,56 @@
     root.style.marginTop = (clientHeight - pageHeight) / 2 + 'px'
 </script>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="./setting.js"></script>
+<script src="./plan.js"></script>
 <script type="module">
+
     $(function () {
-        window.My_Setting.init({
-            list: [
-                {id: 1, title: '温湿度', content: '温度：10;湿度20', top: 0, left: 0},
-                {id: 2, title: '空气质量', content: 'pm2.5：10;酸碱度：20', top: 0, left: 0},
-            ],
-            GetData: (list) => {
-                console.log(list);
-            }
+
+        window.My_Plan.setImage({
+            img: '../images/demo_picture.png'
         })
+        window.My_Plan.render({
+            list: [
+                {id: 1, title: '温湿度', top: 0, left: 0},
+                {id: 2, title: '空气质量', top: 0, left: 0},
+            ],
+        })
+        setTimeout(() => {
+            window.My_Plan.push({
+                data: {
+                    aid: 123,
+                    atitle: 'title'
+                },
+                keys: {
+                    id: 'aid',
+                    title: 'atitle'
+                }
+            })
+        }, 3000)
+
+        setTimeout(() => {
+            window.My_Plan.confirm(list => {
+                console.log(list);
+            })
+        }, 6000)
+        setTimeout(() => {
+            window.My_Plan.delete(1)
+        }, 9000)
+        /*   window.My_Setting.push({
+               data: {
+                   aid: 123,
+                   atitle: 'title'
+               },
+               keys: {
+                   id: 'aid',
+                   title: 'atitle'
+               }
+           })*/
+        /*
+                setTimeout(() => {
+                    window.My_Setting.delete(1)
+                }, 2000)
+        */
     })
 </script>
 </body>
