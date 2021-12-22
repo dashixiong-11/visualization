@@ -134,6 +134,18 @@
                         </div>
                     </div>
                     <div class="bordered section5-bottom section-bottom-height">
+                        <div class='switch-bar'>
+                            <img src='./images/left.svg' id="prev4" alt=""/>
+                            <span id="name4">空调机1</span>
+                            <img src='./images/right.svg' id="next4" alt=""/>
+                        </div>
+                        <video controls style='width: 100%'>
+                            <source src="/media/cc0-videos/flower.webm"
+                                    type="video/webm">
+
+                            <source src="/media/cc0-videos/flower.mp4"
+                                    type="video/mp4">
+                        </video>
                     </div>
                 </section>
             </main>
@@ -148,6 +160,7 @@
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.1.2/echarts.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/zTree.v3/3.5.42/js/jquery.ztree.all.min.js"></script>
+<script src="./videoSwitch.js"></script>
 <script src="./time.js"></script>
 <script src="./plan.js"></script>
 <script src="./switch.js"></script>
@@ -162,6 +175,14 @@
 <script>
     const px = (n) => n / 2420 * window.pageWidth;
     const {render: zTreeRender} = window.My_Switch
+
+    window.Video_switch.init({
+        list: [{id: 1, name: '设备1'},
+            {id: 2, name: '设备2'},],
+        callback: (item) => {
+            console.log(item);
+        }
+    })
 
     $(function () {
         zTreeRender({

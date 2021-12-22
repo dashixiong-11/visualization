@@ -74,7 +74,8 @@ const Plan = {
         this.list = list;
         this.timeId = setTimeout(() => {
             $(".card").remove();
-            const l = list || this.list
+            const l = list || this.list || []
+            console.log(l);
             let planHeight = $('#plan-wrapper')[0].clientHeight
             let planWidth = $('#plan-wrapper')[0].clientWidth
             l.forEach((item) => {

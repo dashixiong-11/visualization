@@ -18,16 +18,17 @@
 <body>
 <div id="root">
     <div class="App">
-        <div class="home" style="background-image:url('./images/bj.png')">
-            <div class="login">
-                <h1 class="login-h1">xxx系统</h1>
-                <form>
+        <div class="home" style="background-image:url('./images/bj.png');position: relative">
+
+            <div class="login ">
+                <form class='bordered2'>
+                    <h1 class="login-h1">xxx系统</h1>
                     <label>
-                        <div>帐号</div>
-                        <input type="text" placeholder="请输入帐号" class="user">
+                        <img src='./images/user.svg'></img>
+                        <input type="text" placeholder="请输入用户名" class="user">
                     </label>
-                    <label style="margin-left: 3em">
-                        <div>密码</div>
+                    <label>
+                        <img src='./images/password.svg'></img>
                         <input type="password" placeholder="请输入密码" class="password">
                     </label>
                     <button type="submit">登录</button>
@@ -37,7 +38,6 @@
     </div>
 </div>
 <script>
-    // root.style.width = pageWidth + 'px'
     root.style.height = pageHeight + 'px'
     root.style.marginTop = (clientHeight - pageHeight) / 2 + 'px'
 </script>

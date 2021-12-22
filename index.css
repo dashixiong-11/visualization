@@ -446,50 +446,78 @@ img {
 }
 
 .login {
-    flex: 1;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     flex-direction: column;
-    padding-top: 15%;
+    position: absolute;
+    right: calc(300/2420*100rem);
+    top: calc(500/2420*100rem);
+}
+
+.bg-wrapper {
+    flex: 1;
+    position: relative;
+}
+
+.bg-wrapper > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.bg-wrapper > .img-jt {
+    width: calc(600 / 2420 * 100rem);
+    animation:myRotate 10s linear infinite;
+}
+.bg-wrapper > .img-map {
+    width: calc(500 / 2420 * 100rem);
+}
+.bg-wrapper > .img-lbx {
+    width: calc(700 / 2420 * 100rem);
 }
 
 .login-h1 {
-    font-size: calc(80 / 2420 * 100rem);
-    line-height: 3;
+    font-size: calc(35 / 2420 * 100rem);
 }
 
 form {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    flex-direction: column;
+    padding: calc(50 / 2420 * 100rem);
 }
 
 label {
     display: flex;
     align-items: center;
-    background-image: linear-gradient(#1c2a58, #7388ff);
-    border-radius: calc(10 / 2420 * 100rem);
     overflow: hidden;
+    border: 1px solid #5c5c5c8c;
+    margin-top: 2em;
+    padding: 0 10px;
 }
 
-label > div {
-    width: 3em;
-    text-align: center;
-    font-size: calc(30 / 2420 * 100rem);
+label > img {
+    width: calc(26 / 2420 * 100rem);
 }
 
 label > input {
+    color: #fff;
     border: 0;
     outline-style: none;
     padding: 10px 20px;
+    background: transparent;
+    font-size: calc(25 / 2420 * 100rem);
 }
 
-form > button {
-    color: #fff;
-    padding: 0 2em;
-    outline-style: none;
+
+button {
     border: none;
-    margin-left: 2em;
-    height: 100%;
+    color: #fff;
+    padding: 0.5em 2em;
     border-radius: calc(10 / 2420 * 100rem);
+    margin-top: 2em;
+    margin-left: auto;
+    align-self: flex-end;
     background-image: linear-gradient(#1c2a58, #7388ff);
 }
+
