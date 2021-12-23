@@ -103,7 +103,11 @@
                         </div>
                     </div>
                     <div class="bordered section4-bottom section-bottom-height">
-                        <!--                    <Chart5/>-->
+                        <div class="section-header">
+                            <h2>空气质量与温湿度实时报警</h2>
+                        </div>
+                        <div class='my-table' id='my-table'>
+                        </div>
                     </div>
                 </section>
                 <section class="section5">
@@ -128,8 +132,6 @@
                                 <div class='thermometer' id='thermometer'>
                                     <canvas id='canvas4'></canvas>
                                 </div>
-                                <!--                            <WaveBall value={humidity}/>-->
-                                <!--                                <Thermometer value={temp}/>-->
                             </div>
                         </div>
                     </div>
@@ -168,6 +170,7 @@
 <script src="./chart2.js"></script>
 <script src="./chart3.js"></script>
 <script src="./chart4.js"></script>
+<script src="./chart5.js"></script>
 <script>
     root.style.height = pageHeight + 'px'
     root.style.marginTop = (clientHeight - pageHeight) / 2 + 'px'
@@ -175,6 +178,17 @@
 <script>
     const px = (n) => n / 2420 * window.pageWidth;
     const {render: zTreeRender} = window.My_Switch
+    const {render: tableRender} = window.My_Table
+
+    tableRender({
+        headerData: {wendu: '温度', shidu: '湿度', liangdu: '亮度'}, list: [
+            {wendu: 10, shidu: 20, liangdu: 30},
+            {wendu: 20, shidu: 30, liangdu: 40},
+            {wendu: 10, shidu: 20, liangdu: 30},
+            {wendu: 20, shidu: 30, liangdu: 40},
+            {wendu: 20, shidu: 30, liangdu: 40},
+        ]
+    })
 
     window.Video_switch.init({
         list: [{id: 1, name: '设备1'},
