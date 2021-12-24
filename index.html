@@ -22,9 +22,11 @@
         <div class="home" style="background-image:url('./images/bj.png')">
             <header style='background-image: url("./images/head_bg.png")'>
                 <div class="now">
-                    <span id="render-time">
-                    </span>
-                    <div><span id="render-now"> </span> <span id="render-week"></span></div>
+                    <div>
+                        <span id="render-week"></span>
+                        <span id="render-now"> </span>
+                    </div>
+                    <span id="render-time"> </span>
                 </div>
                 <span class='header-time' id="render-range"> </span>
                 <span class='header-title'> xxx系统 </span>
@@ -32,9 +34,9 @@
             </header>
             <main>
                 <section class="section3">
-                    <div class="bordered section3-top section-top-height">
+                    <div class="bordered section3-top ">
                         <div class="section-header">
-                            <h2>恒温一体机</h2>
+                            <h2>恒温恒湿一体机</h2>
                         </div>
                         <div class='switch-bar'>
                             <img src='./images/left.svg' id="prev1" alt=""/>
@@ -42,7 +44,6 @@
                             <img src='./images/right.svg' id="next1" alt=""/>
                         </div>
                         <div class="chart-wrapper">
-                            <!--                        <Chart15/>-->
                             <div class="chart" id="chart-1"></div>
                         </div>
                         <div style=" display: flex; flex: 1; justify-content:center; flex-direction: column ">
@@ -65,34 +66,20 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="section3-bottom bordered section-bottom-height">
+                    <div class="section3-bottom bordered" id='section3-bottom'>
                         <div class="section-header">
-                            <h2>空调监控</h2>
+                            <h2>空气质量监测</h2>
                         </div>
                         <div class='switch-bar'>
                             <img src='./images/left.svg' id="prev2" alt=""/>
                             <span id="name2">空调机1</span>
                             <img src='./images/right.svg' id="next2" alt=""/>
                         </div>
-                        <div style=" display: flex; flex: 1; justify-content: center; flex-direction: column ">
-                            <ul class="box3-wrapper">
-                                <li class="bordered2">
-                                    <img src='./images/kaiguanji.png' alt=""/>
-                                    <span>开关机状态</span>
-                                    <div class='button' id="status2">开机</div>
-                                </li>
-                                <li class="bordered2">
-                                    <img src='./images/wenduji.png' alt=""/>
-                                    <span>设定温度</span>
-                                    <div class='button' id="temperature">20°C</div>
-                                </li>
-                                <li class="bordered2">
-                                    <img src='./images/kongtiao.png' alt=""/>
-                                    <span>当前室温</span>
-                                    <div class='button' id="room-temperature">28°C</div>
-                                </li>
-                            </ul>
+                        <div class='chart-wrapper'>
+                            <div id='chart-2' class='chart'>
+                            </div>
                         </div>
+                        <div class='section3-loop-wrapper' id='loops'> </div>
                     </div>
                 </section>
                 <section class="section4">
@@ -265,29 +252,20 @@
             list: [
                 {
                     id: 1,
-                    name: '空调机1',
-                    status: '开机',
-                    temperature: '30度',
-                    roomTemperature: '21度',
+                    name: '设备1',
                 },
                 {
                     id: 2,
-                    name: '空调机2',
-                    status: '关机',
-                    temperature: '10度',
-                    roomTemperature: '11度',
+                    name: '设备2',
                 },
                 {
                     id: 3,
-                    name: '空调机3',
-                    status: '关机',
-                    temperature: '40度',
-                    roomTemperature: '2度',
+                    name: '设备3',
                 },
             ],
             callback: (data) => {
-                console.log('data2');
                 console.log(data);
+                window.My_Chart2.render({values:[10,24,43,53]})
             }
         })
 

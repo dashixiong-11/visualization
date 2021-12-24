@@ -41,7 +41,7 @@ const Chart1 = {
                         width: 8
                     },
                     center: ['20%', '60%'],
-                    radius: '50%',
+                    radius: '60%',
                     axisLine: {
                         lineStyle: {
                             width: 8
@@ -82,6 +82,7 @@ const Chart1 = {
                     },
                     data: [
                         {
+
                             value: leftValue,
                         }
                     ]
@@ -98,7 +99,7 @@ const Chart1 = {
                             ]
                         }
                     },
-                    radius: '60%',
+                    radius: '90%',
                     pointer: {
                         itemStyle: {
                             color: 'auto'
@@ -130,12 +131,16 @@ const Chart1 = {
                         valueAnimation: true,
                         formatter: '{value}',
                         color: 'auto',
-                        offsetCenter: [0, '100%']
+                        offsetCenter: [0, '60%']
                     },
                     data: [
                         {
                             value: middleValue,
-                            name: '当前温度'
+                            name: '当前温度',
+                            title:{
+                                color:'#fff',
+                                offsetCenter:[0, '100%'] ,
+                            },
                         }
                     ]
                 },
@@ -146,7 +151,7 @@ const Chart1 = {
                         width: 8
                     },
                     center: ['80%', '60%'],
-                    radius: '50%',
+                    radius: '60%',
                     axisLine: {
                         lineStyle: {
                             width: 8
